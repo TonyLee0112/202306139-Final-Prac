@@ -1,0 +1,42 @@
+// vector class practice
+// C++ 에서의 vector class 는 Queue 를 modeling 하는데 유용하다. Queue : 대기열
+// complex class 에서 처럼 vector class 도 처음에 object 를 정의할 때 구성 요소들이 어떤 variable type 인지 알려줘야한다.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+	vector <int> v1, v2, v3;
+	vector <int> ::iterator ii; // iterator 는 vector class 의 포인터 개념
+	// vector class 에 값을 넣을 때는 push_back() 함수를 이용한다.
+	for (int i = 0; i < 3; i++) {
+		v1.push_back(10*(i+1)); v2.push_back(10*(i-3));
+	}
+
+	cout << "This size of v1 before erasing is " << v1.size() << endl;
+	// Check whether the values are stored with no problem
+	cout << "v1 =";
+	for (ii = v1.begin(); ii != v1.end(); ii++) {
+		cout << " " << *ii;
+	}
+	cout << endl;
+
+	// erasing
+	v1.erase(v1.begin() + 1, v1.begin() + 3);
+	cout << "This size of v1 after erasing is " << v1.size() << endl;
+	cout << "v1 =";
+	for (ii = v1.begin(); ii != v1.end(); ii++) {
+		cout << " " << *ii;
+	}
+	cout << endl;
+
+	// Clearing
+	v1.clear();
+	cout << "This size of v1 after clearing is " << v1.size() << endl;
+
+	
+
+
+
+
+}
