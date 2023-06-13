@@ -1,0 +1,30 @@
+// Template and Generic programming
+// Generic Programming
+// 입력/ 출력되는 변수형을 미리 정하지 않고, 알고리즘만 구현하는 프로그래밍
+// 변수형은 입력되는 순간에 그떄그때 결정된다. 어떻게? Template 를 이용한다.
+// 즉 알고리즘은 동일하지만 변수형만 다를경우.
+// Doesn't matter even though each parameters has different variable type.
+// Also be able to use in definition of class
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+template <typename Ran>
+class test {
+public:
+	test() {}
+	test(Ran xx, Ran yy) : a(xx), b(yy) { }
+
+	Ran a, b;
+	Ran plus() { return a + b; }
+};
+
+void main() {
+	test <int> INT(2, 8);
+	cout << INT.plus() << endl;
+	string astring = "I Love ";
+	string bstring = "Myself ";
+	test <string> STR(astring, bstring);
+	cout << STR.plus() << endl;
+}
