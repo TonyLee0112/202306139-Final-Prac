@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-	vector <int> v1, v2, v3;
+	vector <int> v1, v2;
 	vector <int> ::iterator ii; // iterator 는 vector class 의 포인터 개념
 	// vector class 에 값을 넣을 때는 push_back() 함수를 이용한다.
 	for (int i = 0; i < 3; i++) {
@@ -33,10 +33,4 @@ int main() {
 	// Clearing
 	v1.clear();
 	cout << "This size of v1 after clearing is " << v1.size() << endl;
-
-	
-
-
-
-
 }
