@@ -1,0 +1,53 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void coutall(vector <int> Vec) {
+	vector <int> ::iterator Iter;
+	cout << "capacity & size = "<< Vec.capacity() << "bytes & " << Vec.size() << " 개 : ";
+	for (Iter = Vec.begin(); Iter != Vec.end(); Iter++) {
+		cout << " " << *Iter;
+	}
+};
+
+void main() {
+	vector <int> v1;
+	vector <int>::iterator Iter;
+
+	// 1. default size, capacity
+	cout << "default value of size : " << v1.size() << "개" << endl;
+	cout << "default value of capacity : " << v1.capacity() << "bytes" << endl;
+
+    // 2. Reserve size
+	v1.reserve(32); // Lengthen Capacity of the vector
+	v1.resize(4); // Re-size of the vector
+
+	cout << "size : " << v1.size() << "개" << endl;
+	cout << "capacity : " << v1.capacity() << "bytes" << endl;
+	coutall(v1);
+	cout << endl;
+	// 3. Put 2 integers
+	v1.push_back(10);
+	v1.push_back(20);
+	coutall(v1);
+	cout << endl;
+
+	// 4. insert 4 integers at the front
+	for (int i = 0; i < 4; i++) {
+		v1.emplace(v1.begin() + i, (i + 1) * 5); // emplace(들어갈 위치, 추가할 값)
+	}
+
+	// 5. set the following 4 integers
+	for (int i = 0; i < 4; i++) {
+		v1[i + 4] = 5 * (i + 5);
+	}
+	coutall(v1);
+	cout << "\n erased numbers : ";
+	// 6. get the first 5 integers and erase
+	for (int i = 0; i < 5; i++) {
+		cout << v1[0] << " ";
+		v1.erase(v1.begin());
+	}
+	cout << "\n capacity after erased : " << v1.capacity() << " bytes " << endl;
+	coutall(v1);
+}
